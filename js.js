@@ -1,13 +1,15 @@
-window.addEventListener("mousemove", (e) => {
-    console.log(e.clientX);
-    console.log(e.clientY);
-    const x = e.clientX
-    const y = e.clientY
-    div.style.position = "absolute"
-    div.style.left = x
-    div.style.left = y
-})
+const box = document.getElementById('box');
 
+function mousePos(e) {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    box.style.position = "absolute";
+    box.style.left = x + "px";
+    box.style.top = y + "px";
+}
+
+document.addEventListener('mousemove', _.debounce(mousePos, 100));
 
 
 
